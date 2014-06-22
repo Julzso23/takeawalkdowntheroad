@@ -47,19 +47,19 @@ function controls.axis:value()
 	if controls.joysticks[self.joystick] then
 		local js = controls.joysticks[self.joystick]
 		if self.controllerPos and self.controllerNeg then
-			if js:isDown(self.controllerPos) and js:isDown(self.controllerNeg) then
+			if js:isGamepadDown(self.controllerPos) and js:isGamepadDown(self.controllerNeg) then
 				return 0
 			end
 		end
 
 		if self.controllerPos then
-			if js:isDown(self.controllerPos) then
+			if js:isGamepadDown(self.controllerPos) then
 				return 1
 			end
 		end
 
 		if self.controllerNeg then
-			if js:isDown(self.controllerNeg) then
+			if js:isGamepadDown(self.controllerNeg) then
 				return -1
 			end
 		end
