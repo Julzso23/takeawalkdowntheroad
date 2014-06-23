@@ -10,9 +10,7 @@ hook.add("gameInit", "init", function()
 	world = world.create()
 	world.players[1] = player.create(world)
 
-	tile.create(world, 0, 128, 128, 32)
-	tile.create(world, 192, 256, 128, 64)
-	tile.create(world, 256, 300, 128, 16)
+	maps.load("map", world)
 end)
 
 hook.add("gameUpdate", "update", function(dt)
