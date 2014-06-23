@@ -10,8 +10,8 @@ function maps.loadFiles(folder)
 
 	for k, v in pairs(love.filesystem.getDirectoryItems(path)) do
 		if love.filesystem.isFile(path.."/"..v) then
-			if string.find(path.."/"..v, ".lua") then
-				maps.mapList[v:gsub(".lua", "")] = msg.unpack(love.filesystem.read(path.."/"..v))
+			if string.find(path.."/"..v, ".jmf") then
+				maps.mapList[v:gsub(".jmf", "")] = msg.unpack(love.filesystem.read(path.."/"..v))
 			end
 		elseif love.filesystem.isDirectory(path.."/"..v) then
 			maps.loadFiles(path.."/"..v)
@@ -38,3 +38,7 @@ function maps.load(map, world)
 		print("Failed to load map: " .. map .. ". Missing file.")
 	end
 end
+
+hook.add("load", "loadMaps", function()
+	maps.loadFiles("maps")
+end)
