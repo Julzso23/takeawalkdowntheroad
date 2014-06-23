@@ -1,7 +1,7 @@
 maps = {}
 maps.mapList = {}
 
-function maps.loadFiles(folder)
+function maps.loadFiles(path)
 	local msg = require("lib/MessagePack")
 
 	if not love.filesystem.exists(path) then
